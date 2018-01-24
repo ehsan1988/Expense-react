@@ -12,12 +12,7 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
-store.dispatch(addExpense({description: 'Water bill', amount: 400}));
-store.dispatch(addExpense({description: 'rent', amount: 8000}));
-// store.dispatch(setTextFilter('water'));
 
-const state = store.getState();
-const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 
 const jsx = (
     <Provider store={store}>
