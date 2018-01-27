@@ -1,40 +1,26 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import ExpenseListItem from './ExpenseListItems'
-import selectExpense from '../selectors/expenses'
+import React from 'react';
+import { connect } from 'react-redux';
+import ExpenseListItem from './ExpenseListItem';
+import selectExpenses from '../selectors/expenses';
 
-const ExpenseList = (props) => {
-    return (
-        <div>
-            {props.expenses.map((expense) => {
-                return <ExpenseListItem {...expense} key={expense.id}/>
-            })}
-            <h2>Expense List</h2>
-            {props.expenses.length}
-        </div>
-    );
+export const ExpenseList = (props) => (
+  <div>
+    {
+      props.expenses.length === 0 ? (
+        <p>No expenses</p>
+      ) : (
+          props.expenses.map((expense) => {
+            return <ExpenseListItem key={expense.id} {...expense} />;
+          })
+        )
+    }
+  </div>
+);
+
+const mapStateToProps = (state) => {
+  return {
+    expenses: selectExpenses(state.expenses, state.filters)
+  };
 };
 
-/*const ConnectStateToStore=connect((state)=>{
-    return {
-        // name:'ehsan'
-        expenses:state.expenses
-    }
-})(ExpenseList);*/
-// export default ExpenseList;
-// export default ConnectStateToStore;
-/*const mapStateToStore=(state)=>{
-    return {
-        // name:'ehsan'
-        expenses:state.expenses
-    }
-};*/
-
-
-const mapStateToStore = (state) => {
-    return {
-        expenses: selectExpense(state.expenses, state.filters)
-}
-};
-
-export default connect(mapStateToStore)(ExpenseList);
+export default connect(mapStateToProps)(ExpenseList);
