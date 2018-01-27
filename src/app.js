@@ -8,6 +8,7 @@ import getVisibleExpenses from './selectors/expenses';
 import {Provider} from 'react-redux'
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
+import'./firebase/firebase';
 
 
 const store = configureStore();

@@ -10,8 +10,8 @@
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
     "test": "jest --watch",
-    "start":"node server/server.js",
-    "heroku-postbuild":"yarn run build:prod"
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run build:prod"
   },
   "dependencies": {
     "babel-cli": "6.24.1",
@@ -24,6 +24,7 @@
     "css-loader": "0.28.4",
     "express": "^4.16.2",
     "extract-text-webpack-plugin": "^3.0.2",
+    "firebase": "^4.9.0",
     "i": "^0.3.6",
     "jest": "20.0.4",
     "live-server": "^1.2.0",
@@ -39,6 +40,7 @@
     "react-redux": "5.0.5",
     "react-router-dom": "4.1.2",
     "redux": "3.7.2",
+    "redux-thunk": "^2.2.0",
     "sass-loader": "6.0.6",
     "style-loader": "0.18.2",
     "uuid": "3.1.0",
